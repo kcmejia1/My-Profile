@@ -1,0 +1,188 @@
+/* Remove default margin & padding */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set beige background for the entire page */
+body {
+    background-color: beige;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Navigation Bar */
+.nav {
+    position: fixed; /* Keeps navbar always visible */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5f5de;
+    text-align: center;
+    list-style-type: none;
+    padding: 15px 0; /* Adds space inside navbar */
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
+/* Push content down so it doesn't hide under navbar */
+body {
+    padding-top: 60px; /* Adjust based on navbar height */
+}
+
+
+/* Navigation Links */
+.nav li {
+    display: inline-block;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 300;
+    opacity: 0; /* Start hidden */
+    animation: popUpLinks 0.8s ease-out forwards;
+}
+
+/* Ensure the animation works */
+@keyframes popUpLinks {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Add delay for each item to make them appear one by one */
+.nav li:nth-child(1) { animation-delay: 0.2s; }
+.nav li:nth-child(2) { animation-delay: 0.4s; }
+.nav li:nth-child(3) { animation-delay: 0.6s; }
+.nav li:nth-child(4) { animation-delay: 0.8s; }
+
+/* Navigation Link Styling */
+.nav li a {
+    display: block;
+    padding: 10px 50px;
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    transition: transform 0.3s ease-out;
+}
+
+/* Lift effect on hover */
+.nav li a:hover {
+    transform: translateY(-3px);
+}
+
+/* Change color when clicked */
+.nav li a:active {
+    color: darkblue;
+}
+
+/* Image Wrapper (Left Image) */
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 250px;
+    margin-top: 100px; /* Ensure enough space below the navbar */
+    margin-left: 300px;
+}
+
+/* First Image */
+.image-wrapper img {
+    width: 500px;
+    height: auto;
+    display: block;
+    animation: slideIn 1s ease-out;
+}
+
+/* Caption Styling */
+.caption {
+    font-size: 12px;
+    font-weight: 400;
+    color: black;
+    margin-top: 5px;
+    text-align: right;
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+/* Quote Section (Independent) */
+.quote-section {
+    position: absolute;
+    top: 270px; /* Adjust to move quote higher or lower */
+    right: 100px; /* Align with second image */
+    text-align: right; /* Aligns text to the right */
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: #5C4033;
+    width: 300px; /* Controls quote width */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Second Image Wrapper */
+.second-image {
+    position: absolute;
+    top: 600px; /* Adjust positioning */
+    right: 55px; /* Moves it to the right */
+    text-align: center;
+    animation: slideInRight 1.5s ease-out;
+}
+
+/* Second Image Styling */
+.second-image img {
+    width: 400px; /* Adjust size */
+    height: auto;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
